@@ -25,26 +25,54 @@
             position: relative;
             z-index: 1; /* Garante que o texto fique por cima do pinguim */
         }
-        .penguin-image {
-            width: 100px;
+        .penguin-gif {
+            width: 150px; /* Tamanho do GIF do pinguim */
             height: auto;
             position: absolute;
             z-index: 0; /* Garante que o pinguim fique por baixo do texto */
-            animation: walkAround 15s linear infinite;
+            animation: walkAround 20s linear infinite; /* Animação para movimentar o GIF */
         }
 
-        /* --- Código para a animação --- */
+        /* --- Código para a animação do GIF ao redor da tela --- */
         @keyframes walkAround {
-            0% { top: 10%; left: 10%; transform: rotate(0deg); }
-            25% { top: 10%; left: 80%; transform: rotate(90deg); }
-            50% { top: 80%; left: 80%; transform: rotate(180deg); }
-            75% { top: 80%; left: 10%; transform: rotate(270deg); }
-            100% { top: 10%; left: 10%; transform: rotate(360deg); }
+            0% { top: 10%; left: 10%; transform: rotateY(0deg); }
+            20% { top: 10%; left: 80%; transform: rotateY(0deg); } /* Anda para a direita */
+            21% { top: 10%; left: 80%; transform: rotateY(180deg); } /* Vira para a esquerda */
+            40% { top: 80%; left: 80%; transform: rotateY(180deg); } /* Anda para baixo */
+            41% { top: 80%; left: 80%; transform: rotateY(0deg); } /* Vira para a direita */
+            60% { top: 80%; left: 10%; transform: rotateY(0deg); } /* Anda para a esquerda */
+            61% { top: 80%; left: 10%; transform: rotateY(180deg); } /* Vira para a direita */
+            80% { top: 10%; left: 10%; transform: rotateY(180deg); } /* Anda para cima */
+            81% { top: 10%; left: 10%; transform: rotateY(0deg); } /* Vira para a direita */
+            100% { top: 10%; left: 10%; transform: rotateY(0deg); }
         }
+
+        /* Ajustes para dispositivos móveis */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            .penguin-gif {
+                width: 100px;
+            }
+            @keyframes walkAround {
+                0% { top: 5%; left: 5%; transform: rotateY(0deg); }
+                20% { top: 5%; left: 75%; transform: rotateY(0deg); }
+                21% { top: 5%; left: 75%; transform: rotateY(180deg); }
+                40% { top: 85%; left: 75%; transform: rotateY(180deg); }
+                41% { top: 85%; left: 75%; transform: rotateY(0deg); }
+                60% { top: 85%; left: 5%; transform: rotateY(0deg); }
+                61% { top: 85%; left: 5%; transform: rotateY(180deg); }
+                80% { top: 5%; left: 5%; transform: rotateY(180deg); }
+                81% { top: 5%; left: 5%; transform: rotateY(0deg); }
+                100% { top: 5%; left: 5%; transform: rotateY(0deg); }
+            }
+        }
+
     </style>
 </head>
 <body>
     <h1>Eu te amo, Pedrinho</h1>
-    <img src="https://i.imgur.com/k6lP0uS.jpeg" alt="Pinguim fofo" class="penguin-image">
+    <img src="https://i.imgur.com/b0dMG.gif" alt="Pinguim fofo andando" class="penguin-gif">
 </body>
 </html>
