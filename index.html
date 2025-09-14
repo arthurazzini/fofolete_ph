@@ -1,78 +1,86 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para o Pedrinho</title>
+    <title>pedro eu te amo, casa comigo?</title>
+
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #e3f2fd;
-            color: #1a237e;
+        body{
+            background-color: red;
+        }
+
+        .painel{
+            margin: auto;
+            background-color: white;
+            width: 500px;
+            height: 500px;
+            border-radius: 20px;
             text-align: center;
-            position: relative; /* Essencial para a animação */
-            overflow: hidden; /* Evita barras de rolagem */
+            padding-top: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
-        h1 {
-            font-size: 3em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 1; /* Garante que o texto fique por cima do pinguim */
+        #sim{
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: -50px;
         }
-        .penguin-gif {
-            width: 150px; /* Tamanho do GIF do pinguim */
-            height: auto;
+        #nao{
             position: absolute;
-            z-index: 0; /* Garante que o pinguim fique por baixo do texto */
-            animation: walkAround 20s linear infinite; /* Animação para movimentar o GIF */
-        }
-
-        /* --- Código para a animação do GIF ao redor da tela --- */
-        @keyframes walkAround {
-            0% { top: 10%; left: 10%; transform: rotateY(0deg); }
-            20% { top: 10%; left: 80%; transform: rotateY(0deg); } /* Anda para a direita */
-            21% { top: 10%; left: 80%; transform: rotateY(180deg); } /* Vira para a esquerda */
-            40% { top: 80%; left: 80%; transform: rotateY(180deg); } /* Anda para baixo */
-            41% { top: 80%; left: 80%; transform: rotateY(0deg); } /* Vira para a direita */
-            60% { top: 80%; left: 10%; transform: rotateY(0deg); } /* Anda para a esquerda */
-            61% { top: 80%; left: 10%; transform: rotateY(180deg); } /* Vira para a direita */
-            80% { top: 10%; left: 10%; transform: rotateY(180deg); } /* Anda para cima */
-            81% { top: 10%; left: 10%; transform: rotateY(0deg); } /* Vira para a direita */
-            100% { top: 10%; left: 10%; transform: rotateY(0deg); }
-        }
-
-        /* Ajustes para dispositivos móveis */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
-            .penguin-gif {
-                width: 100px;
-            }
-            @keyframes walkAround {
-                0% { top: 5%; left: 5%; transform: rotateY(0deg); }
-                20% { top: 5%; left: 75%; transform: rotateY(0deg); }
-                21% { top: 5%; left: 75%; transform: rotateY(180deg); }
-                40% { top: 85%; left: 75%; transform: rotateY(180deg); }
-                41% { top: 85%; left: 75%; transform: rotateY(0deg); }
-                60% { top: 85%; left: 5%; transform: rotateY(0deg); }
-                61% { top: 85%; left: 5%; transform: rotateY(180deg); }
-                80% { top: 5%; left: 5%; transform: rotateY(180deg); }
-                81% { top: 5%; left: 5%; transform: rotateY(0deg); }
-                100% { top: 5%; left: 5%; transform: rotateY(0deg); }
-            }
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: 10px;
         }
 
     </style>
+
 </head>
 <body>
-    <h1>Eu te amo, Pedrinho</h1>
-    <img src="https://i.imgur.com/b0dMG.gif" alt="Pinguim fofo andando" class="penguin-gif">
+
+    <div class="painel">
+        <h1> pedro eu te amo, casa comigo</h1>
+
+        <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="">
+
+        <h2>Aceita transar comigo hoje na praia? </h2>
+        
+
+        <a href="https://www.youtube.com/watch?v=oRvND-r57Us"><button id="sim" > Sim! </button></a>
+        <button onmouseover="fuja()" id="nao"> Não! </button>
+        
+    </div>
+
+    <script>
+        function fuja(){
+            var botaoNao = document.getElementById("nao")
+
+            var larguraJanela = window.innerWidth;
+            var alturaJanela = window.innerHeight;
+
+            var maxX = larguraJanela - botaoNao.offsetWidth;
+            var maxY = alturaJanela - botaoNao.offsetHeight;
+
+            var aleatorioX = Math.floor(Math.random() * maxX);
+            var aleatorioY = Math.floor(Math.random() * maxY);
+
+            botaoNao.style.left = aleatorioX + "px";
+            botaoNao.style.top = aleatorioY + "px";
+
+
+        }
+    </script>
+
+
+
+    
 </body>
 </html>
